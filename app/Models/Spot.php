@@ -9,10 +9,10 @@ class Spot extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name','fish_id'];
+    protected $fillable = ['name'];
 
     public function fish()
     {
-        return $this->belongsToMany(Fish::class);
+        return $this->belongsToMany(Fish::class, 'fish_spot');
     }
 }

@@ -19,7 +19,6 @@ class FishFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            'spot_id' => Spot::factory()
         ];
     }
 }

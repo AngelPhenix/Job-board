@@ -1,9 +1,13 @@
 <x-layout>
     <x-slot:heading>
-        Fishing Spot : {{ $spot['name'] }}
+        Fishing Spots :
     </x-slot:heading>
 
-    <p>
-        You can find those fish in this specific spot :
-    </p>
+    <ul>
+        @foreach ($spots as $spot)
+            <li>
+                {{ $spot->name }}
+            </li>
+        @endforeach
+    </ul>
 </x-layout>

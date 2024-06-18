@@ -9,11 +9,11 @@ class Fish extends Model
 {
     use HasFactory;
 
-    protected $table = "poissons";
+    protected $table = "fish_listings";
     protected $fillable = ['name'];
 
     public function spot()
     {
-        return $this->belongsToMany(Spot::class);
+        return $this->belongsToMany(Spot::class, 'fish_spot');
     }
 }

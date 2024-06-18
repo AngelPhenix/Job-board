@@ -3,7 +3,6 @@
 use App\Models\Fish;
 use Illuminate\Support\Facades\Route;
 use App\Models\Job;
-use App\Models\Metier;
 use App\Models\Spot;
 
 Route::get('/', function () {
@@ -28,6 +27,12 @@ Route::get('/contact', function () {
 Route::get('/fish', function () {
     return view('fish', [
         'fishs' => Fish::all()
+    ]);
+});
+
+Route::get('/spot', function () {
+    return view('spot', [
+        'spots' => Spot::all()
     ]);
 });
 

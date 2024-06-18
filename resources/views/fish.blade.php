@@ -4,7 +4,7 @@
     <ul>
         @foreach ($fishs as $fish)
             <li>
-                <strong>{{ $fish['name'] }}</strong> found at <a href="/spot/{{$fish['spot']->id}}"><strong>{{ $fish['spot']->name }}</strong></a>  
+                {{ $fish->name }}
             </li>
         @endforeach
     </ul>
