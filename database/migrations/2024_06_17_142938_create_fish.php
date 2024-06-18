@@ -11,12 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('poissons', function (Blueprint $table) {
+        Schema::create('fish_listings', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            //$table->string('spot');
             $table->foreignIdFor(\App\Models\Spot::class);
-            $table->timestamps();
+        });
+
+        Schema::create('spot_poisson', function (Blueprint $table) {
+            $table->id();
+            $table->foreignIdFor(\App\Models\Spot::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(\App\Models\Fish::class)->constrained()->cascadeOnDelete();
         });
     }
 
@@ -26,5 +30,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('poissons');
+        Schema::dropIfExists('spot_poisson');
     }
 };

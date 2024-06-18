@@ -14,6 +14,6 @@ class Fish extends Model
 
     public function spot()
     {
-        return $this->belongsTo(Spot::class);
+        return $this->belongsToMany(Spot::class);
     }
 }

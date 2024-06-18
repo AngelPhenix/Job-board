@@ -14,8 +14,6 @@ return new class extends Migration
         Schema::create('spots', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignIdFor(\App\Models\Fish::class);
-            $table->timestamps();
         });
     }
 
