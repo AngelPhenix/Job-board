@@ -5,15 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Fish extends Model
+class Spot extends Model
 {
     use HasFactory;
 
-    protected $table = "poissons";
-    protected $fillable = ['name'];
-
     public function spot()
     {
-        return $this->belongsTo(Spot::class);
+        return $this->hasMany(Fish::class);
     }
 }

@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('poissons', function (Blueprint $table) {
+        Schema::create('spots', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            //$table->string('spot');
-            $table->foreignIdFor(\App\Models\Spot::class);
+            $table->foreignIdFor(\App\Models\Fish::class);
             $table->timestamps();
         });
     }
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('poissons');
+        Schema::dropIfExists('spots');
     }
 };
