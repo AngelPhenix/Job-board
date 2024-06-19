@@ -9,10 +9,8 @@ class Tag extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name'];
-
     public function jobs()
     {
-        return $this->belongsToMany(Job::class);
+        return $this->belongsToMany(Job::class, relatedPivotKey:'job_listings_id');
     }
 }
