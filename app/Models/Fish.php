@@ -11,6 +11,7 @@ class Fish extends Model
 
     protected $table = "fish_listings";
     protected $fillable = ['name'];
+    public $timestamps = false;
 
     public function spot()
     {
