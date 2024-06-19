@@ -22,7 +22,7 @@
               <x-nav-link href="/jobs" :active="request()->is('jobs')">Jobs</x-nav-link>
               <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
               <x-nav-link href="/fish" :active="request()->is('fish')">Fish</x-nav-link>
-              <x-nav-link href="/spot" :active="request()->is('spot')">Spots</x-nav-link>
+              <x-nav-link href="/spots" :active="request()->is('spot')">Spots</x-nav-link>
             </div>
           </div>
         </div>

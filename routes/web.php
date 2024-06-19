@@ -30,8 +30,8 @@ Route::get('/fish', function () {
     ]);
 });
 
-Route::get('/spot', function () {
-    return view('spot', [
+Route::get('/spots', function () {
+    return view('spots', [
         'spots' => Spot::all()
     ]);
 });

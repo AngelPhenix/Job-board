@@ -13,7 +13,7 @@ class Fish extends Model
     protected $fillable = ['name'];
     public $timestamps = false;
 
-    public function spot()
+    public function spots()
     {
         return $this->belongsToMany(Spot::class, 'fish_spot');
     }
