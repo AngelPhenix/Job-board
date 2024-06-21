@@ -27,12 +27,15 @@ Route::get('/contact', function () {
 });
 
 Route::get('/fish', function () {
+    $fish = Fish::with('spots')->get();
+
     return view('fish', [
-        'fishs' => Fish::all()
+        'fishs' => $fish
     ]);
 });
 
 Route::get('/spots', function () {
+
     return view('spots', [
         'spots' => Spot::all()
     ]);
