@@ -4,7 +4,7 @@
     <ul>
         @foreach ($fishs as $fish)
             <li class="mb-10">
-                {{ $fish->name }} corresponds to the following spots :
+                <u>{{ $fish->name }}</u> can be found at :
                 <ul class="ml-10">
                     @foreach ($fish->spots as $spot)
                         <li>
