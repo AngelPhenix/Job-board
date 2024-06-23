@@ -9,6 +9,8 @@ class Job extends Model {
     use HasFactory;
 
     protected $table = "job_listings";
+
+    // protected $guarded = []; TO DISABLE NOT NULL CONSTRAINT, DELETE $fillable AND ADD EMPTY ARRAY TO $guarded
     protected $fillable = ['title', 'salary', 'employer_id'];
 
     public function employer()
