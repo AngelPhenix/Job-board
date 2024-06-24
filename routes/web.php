@@ -8,7 +8,9 @@ use App\Models\Spot;
 Route::view('/', 'home');
 Route::view('/contact', 'contact');
 
-Route::controller(JobController::class)->group(function() {
+Route::resource('jobs', JobController::class);
+
+/* Route::controller(JobController::class)->group(function() {
     Route::get('/jobs', 'index');
     Route::get('/jobs/create', 'create');
     Route::get('/jobs/{job}', 'show');
@@ -16,7 +18,7 @@ Route::controller(JobController::class)->group(function() {
     Route::get('/jobs/{job}/edit', 'edit');
     Route::patch('/jobs/{job}', 'update');
     Route::delete('/jobs/{job}', 'destroy');
-});
+}); */
 
 
 Route::get('/fish', function () {
