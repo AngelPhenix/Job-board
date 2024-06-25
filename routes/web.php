@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FishermanController;
 use App\Http\Controllers\JobController;
 use App\Models\Fish;
 use Illuminate\Support\Facades\Route;
@@ -20,26 +21,8 @@ Route::resource('jobs', JobController::class);
     Route::delete('/jobs/{job}', 'destroy');
 }); */
 
-
-Route::get('/fish', function () {
-    $fish = Fish::with('spots')->get();
-
-    return view('fisherman/fish', [
-        'fishs' => $fish
-    ]);
-});
-
-Route::get('/spots', function () {
-
-    return view('fisherman/spots', [
-        'spots' => Spot::all()
-    ]);
-});
-
-Route::get('/spot/{id}', function ($id) {
-    $spot = Spot::find($id);
-    
-    return view('fisherman/spot', [
-        'spot' => $spot
-    ]);
+Route::controller(FishermanController::class)->group(function() {
+    Route::get('/fish', 'fish_index');
+    Route::get('/spots', 'spot_index');
+    Route::get('/spot/{spot}', 'spot_show');
 });
