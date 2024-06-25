@@ -24,19 +24,22 @@ Route::resource('jobs', JobController::class);
 Route::get('/fish', function () {
     $fish = Fish::with('spots')->get();
 
-    return view('fish', [
+    return view('fisherman/fish', [
         'fishs' => $fish
     ]);
 });
 
 Route::get('/spots', function () {
 
-    return view('spots', [
+    return view('fisherman/spots', [
         'spots' => Spot::all()
     ]);
 });
 
 Route::get('/spot/{id}', function ($id) {
     $spot = Spot::find($id);
-    return view('spot', ['spot' => $spot]);
+    
+    return view('fisherman/spot', [
+        'spot' => $spot
+    ]);
 });
