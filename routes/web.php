@@ -2,9 +2,8 @@
 
 use App\Http\Controllers\FishermanController;
 use App\Http\Controllers\JobController;
-use App\Models\Fish;
+use App\Http\Controllers\RegisterUserController;
 use Illuminate\Support\Facades\Route;
-use App\Models\Spot;
 
 Route::view('/', 'home');
 Route::view('/contact', 'contact');
@@ -26,3 +25,6 @@ Route::controller(FishermanController::class)->group(function() {
     Route::get('/spots', 'spot_index');
     Route::get('/spot/{spot}', 'spot_show');
 });
+
+// Auth
+Route::get('register', [RegisterUserController::class, 'create']);
