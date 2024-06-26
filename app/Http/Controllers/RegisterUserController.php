@@ -13,6 +13,6 @@ class RegisterUserController extends Controller
 
     public function store()
     {
-        dd("Hello");
+        dd(request()->all());
     }
 }

@@ -8,6 +8,11 @@ class SessionController extends Controller
 {
     public function create()
     {
-        dd("Hello from login page");
+        return view('auth.login');
+    }
+
+    public function store()
+    {
+        dd(request()->all());
     }
 }
