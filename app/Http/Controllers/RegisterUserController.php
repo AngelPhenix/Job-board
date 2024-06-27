@@ -22,11 +22,11 @@ class RegisterUserController extends Controller
             'email' => ['required', 'email'],
             'password' => ['required', Password::min(6), 'confirmed'] // password_confirmation input
         ]);
-
+        
         $user = User::create($attributes); // $attributes already validated, no need to manually do it
 
         Auth::login($user);
-        
+
         return redirect('/jobs');
     }
 }
