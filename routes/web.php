@@ -9,23 +9,24 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'home');
 Route::view('/contact', 'contact');
 
-Route::resource('jobs', JobController::class);
 
-/* Route::controller(JobController::class)->group(function() {
-    Route::get('/jobs', 'index');
-    Route::get('/jobs/create', 'create');
-    Route::get('/jobs/{job}', 'show');
-    Route::post('/jobs', 'store');
-    Route::get('/jobs/{job}/edit', 'edit');
-    Route::patch('/jobs/{job}', 'update');
-    Route::delete('/jobs/{job}', 'destroy');
-}); */
+
+Route::get('/jobs', [JobController::class, 'index']);
+Route::get('/jobs/create', [JobController::class, 'create']);
+Route::post('/jobs', [JobController::class, 'store'])->middleware('auth');
+Route::get('/jobs/{job}', [JobController::class, 'show']);
+Route::get('/jobs/{job}/edit', [JobController::class, 'edit'])->middleware(['auth', 'can:edit-job, job']);
+Route::patch('/jobs/{job}', [JobController::class, 'update']);
+Route::delete('/jobs/{job}', [JobController::class, 'destroy']);
+
+
 
 Route::controller(FishermanController::class)->group(function() {
     Route::get('/fish', 'fish_index');
     Route::get('/spots', 'spot_index');
     Route::get('/spot/{spot}', 'spot_show');
 });
+
 
 // Auth
 Route::get('/register', [RegisterUserController::class, 'create']);
