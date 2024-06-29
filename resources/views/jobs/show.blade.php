@@ -9,7 +9,7 @@
         This job has been posted by the employer named : {{ $job->employer->name }}
     </p>
 
-    @can('edit-job', $job)
+    @can('edit', $job)
         <p class="mt-6">
             <x-button href="/jobs/{{$job->id}}/edit">Edit Job</x-button>
         </p>
