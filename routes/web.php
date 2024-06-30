@@ -4,10 +4,12 @@ use App\Http\Controllers\FishermanController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\RegisterUserController;
 use App\Http\Controllers\SessionController;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 Route::get('test', function() {
-    return new App\Mail\JobPosted;
+    Mail::to('breathstylebro@gmail.com')->send(new App\Mail\JobPosted);
+    return 'Done';
 });
 
 
