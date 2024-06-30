@@ -6,6 +6,11 @@ use App\Http\Controllers\RegisterUserController;
 use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('test', function() {
+    return new App\Mail\JobPosted;
+});
+
+
 Route::view('/', 'home');
 Route::view('/contact', 'contact');
 
