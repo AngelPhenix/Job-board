@@ -7,11 +7,6 @@ use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
-Route::get('test', function() {
-    Mail::to('breathstylebro@gmail.com')->send(new App\Mail\JobPosted);
-    return 'Done';
-});
-
 
 Route::view('/', 'home');
 Route::view('/contact', 'contact');
