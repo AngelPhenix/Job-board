@@ -8,7 +8,7 @@ use App\Models\Spot;
 
 class FishermanController extends Controller
 {
-    public function fish_index()
+    public function index()
     {
         $fish = Fish::with('spots')->get();
 
@@ -17,17 +17,12 @@ class FishermanController extends Controller
         ]);
     }
 
-    public function fish_create()
+    public function create()
     {
         return view('fisherman.fish_create');
     }
 
-    public function spot_create()
-    {
-        return view('fisherman.spot_create');
-    }
-
-    public function fish_store(Request $request)
+    public function store(Request $request)
     {
         $attributes = $request->validate([
             'name' => ['required'],
@@ -37,19 +32,5 @@ class FishermanController extends Controller
         Fish::create($attributes);
 
         return redirect('/');
-    }
-
-    public function spot_index()
-    {
-        return view('fisherman.spots', [
-            'spots' => Spot::all()
-        ]);
-    }
-
-    public function spot_show(Spot $spot)
-    {
-        return view('fisherman.spot', [
-            'spot' => $spot
-        ]);
     }
 }

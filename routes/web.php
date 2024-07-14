@@ -4,6 +4,7 @@ use App\Http\Controllers\FishermanController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\RegisterUserController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\SpotController;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
@@ -24,12 +25,16 @@ Route::delete('/jobs/{job}', [JobController::class, 'destroy'])->middleware(['au
 
 
 Route::controller(FishermanController::class)->group(function() {
-    Route::get('/fish', 'fish_index');
-    Route::get('/spots', 'spot_index');
-    Route::get('/spot/{spot}', 'spot_show');
-    Route::get('/fish/create', 'fish_create');
-    Route::get('/spot/create', 'spot_create');
+    Route::get('/fish', 'index');
+    Route::get('/fish/create', 'create');
     Route::post('/fish', 'fish_store');
+});
+
+Route::controller(SpotController::class)->group(function() {
+    Route::get('/spots', 'index');
+    Route::get('/spot/create', 'create');
+    Route::get('/spot/{spot}', 'show');
+    Route::post('/spot', 'store');
 });
 
 
