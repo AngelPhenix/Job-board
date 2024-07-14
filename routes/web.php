@@ -27,6 +27,7 @@ Route::controller(FishermanController::class)->group(function() {
     Route::get('/fish', 'fish_index');
     Route::get('/spots', 'spot_index');
     Route::get('/spot/{spot}', 'spot_show');
+    Route::get('/fish/create', 'fish_create');
 });
 
 
