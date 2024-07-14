@@ -30,10 +30,16 @@ class FishermanController extends Controller
     {
         $attributes = $request->validate([
             'name' => ['required'],
-            'level' => ['required', 'integer']
+            'level' => ['required', 'integer'],
+            'spot_id' => ['required', 'exists:spots,id']
         ]);
 
-        Fish::create($attributes);
+        $fish = Fish::create([
+            'name' => $attributes['name'],
+            'level' => $attributes['level']
+        ]);
+
+        $fish->spots()->attach($attributes['spot_id']);
 
         return redirect('/');
     }

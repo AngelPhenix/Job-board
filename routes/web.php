@@ -27,7 +27,7 @@ Route::delete('/jobs/{job}', [JobController::class, 'destroy'])->middleware(['au
 Route::controller(FishermanController::class)->group(function() {
     Route::get('/fish', 'index');
     Route::get('/fish/create', 'create');
-    Route::post('/fish', 'fish_store');
+    Route::post('/fish', 'store');
 });
 
 Route::controller(SpotController::class)->group(function() {
