@@ -22,6 +22,18 @@ class FishermanController extends Controller
         return view('fisherman.fish_create');
     }
 
+    public function fish_store(Request $request)
+    {
+        $attributes = $request->validate([
+            'name' => ['required'],
+            'level' => ['required', 'integer']
+        ]);
+
+        Fish::create($attributes);
+
+        return redirect('/');
+    }
+
     public function spot_index()
     {
         return view('fisherman.spots', [
