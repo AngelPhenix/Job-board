@@ -17,6 +17,11 @@ class FishermanController extends Controller
         ]);
     }
 
+    public function fish_create()
+    {
+        return view('fisherman.fish_create');
+    }
+
     public function spot_index()
     {
         return view('fisherman.spots', [
