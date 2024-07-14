@@ -13,7 +13,7 @@
         <x-form-field>
           <x-form-label for="name">Name</x-form-label>
           <div class="mt-2">
-            <x-form-input name="name" id="name" placeholder="Sardine" required/>
+            <x-form-input name="name" id="name" placeholder="Sardine" value="{{ old('name') }}" required/>
             <x-form-error name="name"/>
           </div>
         </x-form-field>
@@ -21,7 +21,7 @@
         <x-form-field>
           <x-form-label for="level">Level</x-form-label>
           <div class="mt-2">
-            <x-form-input name="level" id="level" placeholder="50" required/>
+            <x-form-input name="level" id="level" placeholder="50" value="{{ old('level') }}" required/>
             <x-form-error name="level"/>
           </div>
         </x-form-field>
