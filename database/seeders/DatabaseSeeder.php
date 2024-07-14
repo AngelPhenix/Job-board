@@ -23,5 +23,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Job::factory(50)->create();
+
+        $this->call([
+            FishSpotSeeder::class
+        ]);
     }
 }

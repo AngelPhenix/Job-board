@@ -10,7 +10,11 @@ class Fish extends Model
     use HasFactory;
 
     protected $table = "fish_listings";
-    protected $fillable = ['name'];
+    
+    protected $fillable = [
+        'name', 'level'
+    ];
+
     public $timestamps = false;
 
     public function spots()

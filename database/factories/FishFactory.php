@@ -19,6 +19,7 @@ class FishFactory extends Factory
     {
         return [
             'name' => fake()->name(),
+            'level' => fake()->numberBetween(0, 100)
         ];
     }
 }
