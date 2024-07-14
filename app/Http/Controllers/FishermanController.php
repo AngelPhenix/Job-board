@@ -19,7 +19,11 @@ class FishermanController extends Controller
 
     public function create()
     {
-        return view('fisherman.fish_create');
+        $spots = Spot::all();
+
+        return view('fisherman.fish_create', [
+            'spots' => $spots
+        ]);
     }
 
     public function store(Request $request)
