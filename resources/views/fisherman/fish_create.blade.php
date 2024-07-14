@@ -26,6 +26,16 @@
           </div>
         </x-form-field>
 
+
+        <x-form-field>
+          <x-form-label for="spot_select">Spot Name</x-form-label>
+          <select name="spot_select" id="spot_select">
+            @foreach ($spots as $spot)
+              <option value="{{ $spot->name }}"> {{ $spot->name }} </option>
+            @endforeach
+          </select>
+        </x-form-field>
+
       </div>
     </div>
 
