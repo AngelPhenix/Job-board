@@ -28,12 +28,13 @@
 
 
         <x-form-field>
-          <x-form-label for="spot_select">Spot Name</x-form-label>
-          <select name="spot_select" id="spot_select">
+          <x-form-label for="spot_id">Spot Name</x-form-label>
+          <select name="spot_id" id="spot_id">
             @foreach ($spots as $spot)
               <option value="{{ $spot->id }}"> {{ $spot->name }} </option>
             @endforeach
           </select>
+          <x-form-error name="spot_id"/>
         </x-form-field>
 
       </div>
