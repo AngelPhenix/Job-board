@@ -9,7 +9,10 @@ class Spot extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name'];
+    protected $fillable = [
+        'region','name', 'level'
+    ];
+    
     public $timestamps = false;
 
     public function fish()

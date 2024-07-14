@@ -11,6 +11,14 @@
       <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
 
         <x-form-field>
+            <x-form-label for="region">Region</x-form-label>
+            <div class="mt-2">
+              <x-form-input name="region" id="region" placeholder="Limsa Lominsa Upper Decks" value="{{ old('region') }}" required/>
+              <x-form-error name="region"/>
+            </div>
+          </x-form-field>
+
+        <x-form-field>
           <x-form-label for="name">Name</x-form-label>
           <div class="mt-2">
             <x-form-input name="name" id="name" placeholder="Sardine" value="{{ old('name') }}" required/>

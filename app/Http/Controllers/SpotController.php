@@ -31,6 +31,7 @@ class SpotController extends Controller
     public function store(Request $request)
     {
         $attributes = $request->validate([
+            'region' => ['required'],
             'name' => ['required'],
             'level' => ['required', 'integer']
         ]);

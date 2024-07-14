@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('spots', function (Blueprint $table) {
             $table->id();
+            $table->string('region');
             $table->string('name');
+            $table->integer('level');
         });
     }
 

@@ -17,7 +17,9 @@ class SpotFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name()
+            'region' => fake()->name(),
+            'name' => fake()->name(),
+            'level' => fake()->numberBetween(0, 100)
         ];
     }
 }
