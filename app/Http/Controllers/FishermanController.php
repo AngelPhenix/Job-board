@@ -22,6 +22,11 @@ class FishermanController extends Controller
         return view('fisherman.fish_create');
     }
 
+    public function spot_create()
+    {
+        return view('fisherman.spot_create');
+    }
+
     public function fish_store(Request $request)
     {
         $attributes = $request->validate([
