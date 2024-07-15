@@ -25,15 +25,15 @@ Route::delete('/jobs/{job}', [JobController::class, 'destroy'])->middleware(['au
 
 Route::controller(FishController::class)->group(function() {
     Route::get('/fish', 'index');
-    Route::get('/fish/create', 'create');
+    Route::get('/fish/create', 'create')->middleware(['auth', 'can:admin-only']);
     Route::post('/fish', 'store');
 });
 
 Route::controller(SpotController::class)->group(function() {
     Route::get('/spots', 'index');
-    Route::get('/spot/create', 'create');
+    Route::get('/spot/create', 'create')->middleware(['auth', 'can:admin-only']);
     Route::get('/spot/{spot}', 'show');
-    Route::post('/spot', 'store');
+    Route::post('/spot', 'store')->middleware(['auth', 'can:admin-only']);
 });
 
 
