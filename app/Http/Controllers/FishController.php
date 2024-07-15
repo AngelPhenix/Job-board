@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Fish;
 use App\Models\Spot;
 
-class FishermanController extends Controller
+class FishController extends Controller
 {
     public function index()
     {

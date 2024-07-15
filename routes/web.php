@@ -1,11 +1,10 @@
 <?php
 
-use App\Http\Controllers\FishermanController;
+use App\Http\Controllers\FishController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\RegisterUserController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\SpotController;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 
@@ -24,7 +23,7 @@ Route::delete('/jobs/{job}', [JobController::class, 'destroy'])->middleware(['au
 
 
 
-Route::controller(FishermanController::class)->group(function() {
+Route::controller(FishController::class)->group(function() {
     Route::get('/fish', 'index');
     Route::get('/fish/create', 'create');
     Route::post('/fish', 'store');
