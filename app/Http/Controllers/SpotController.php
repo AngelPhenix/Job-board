@@ -14,7 +14,6 @@ class SpotController extends Controller
     {
         // Allows for us to only retrieve spots that have fish related to them.
         // $spots = Spot::with('fish')->has('fish')->get();
-
         return view('fisherman.spots', [
             'spots' => Spot::all()
         ]);
