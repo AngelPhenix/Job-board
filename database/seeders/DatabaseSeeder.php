@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('admin')
         ]);
 
-        Job::factory(50)->create();
+        Job::factory(10)->create();
 
         $this->call([
             FishSpotSeeder::class

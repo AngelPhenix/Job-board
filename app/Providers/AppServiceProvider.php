@@ -30,8 +30,8 @@ class AppServiceProvider extends ServiceProvider
 
         // Paginator::useBootstrapFive();
 
-        /* Gate::define('edit-job', function(User $user, Job $job) {
-            return $job->employer->user->is($user);
-        }); */
+        Gate::define('admin-only', function(User $user) {
+            return $user->role === 'admin'; // Returns false or true, hence giving it authorization or not
+        });
     }
 }
