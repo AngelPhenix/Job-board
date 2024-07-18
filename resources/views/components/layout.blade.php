@@ -20,7 +20,6 @@
             <div class="ml-10 flex items-baseline space-x-4">
               <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
               <x-nav-link href="/jobs" :active="request()->is('jobs')">Jobs</x-nav-link>
-              <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
               <x-nav-link href="/fish" :active="request()->is('fish')">Fish</x-nav-link>
               <x-nav-link href="/spots" :active="request()->is('spots')">Spots</x-nav-link>
             </div>
@@ -84,7 +83,8 @@
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
             <x-mob-nav-link href="/" :active="request()->is('/')">Home</x-mob-nav-link>
             <x-mob-nav-link href="/jobs" :active="request()->is('jobs')">Jobs</x-mob-nav-link>
-            <x-mob-nav-link href="/contact" :active="request()->is('contact')">Contact</x-mob-nav-link>
+            <x-mob-nav-link href="/fish" :active="request()->is('fish')">Fish</x-mob-nav-link>
+            <x-mob-nav-link href="/spots" :active="request()->is('spots')">Spots</x-mob-nav-link>
       </div>
     </div>
   </nav>
