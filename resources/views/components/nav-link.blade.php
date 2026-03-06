@@ -1,3 +1,5 @@
-<a class="{{ $active ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}} rounded-md px-3 py-2 text-sm font-medium" {{ $attributes }}>
-    {{ $slot }}
+<a
+  {{ $attributes->merge(['class' => 'rounded-lg px-3 py-2 text-sm font-medium transition-colors ' . ($active ? 'bg-primary-50 text-primary-700' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900')]) }}
+>
+  {{ $slot }}
 </a>

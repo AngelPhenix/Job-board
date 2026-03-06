@@ -28,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Model::preventLazyLoading();
 
-        // Paginator::useBootstrapFive();
+        Paginator::useTailwind();
 
         Gate::define('admin-only', function(User $user) {
             return $user->role === 'admin'; // Returns false or true, hence giving it authorization or not

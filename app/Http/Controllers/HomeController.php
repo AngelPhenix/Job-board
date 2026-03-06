@@ -2,21 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Fish;
-use App\Models\Spot;
+use App\Models\Job;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        // Query pour avoir le nombre de fish/spot dispo dans la BDD
-        $fishNum = Fish::all()->count();
-        $spotNum = Spot::all()->count();
+        $jobCount = Job::count();
+        $recentJobs = Job::with('employer')->latest()->take(3)->get();
 
         return view('home', [
-            'fishNum' => $fishNum,
-            'spotNum' => $spotNum
+            'jobCount' => $jobCount,
+            'recentJobs' => $recentJobs,
         ]);
     }
 }

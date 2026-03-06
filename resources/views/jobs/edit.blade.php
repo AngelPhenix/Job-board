@@ -1,60 +1,75 @@
 <x-layout>
-    <x-slot:heading>
-        Edit Job : {{ $job-> title }}
-    </x-slot:heading>
+    <x-slot:heading>Edit job</x-slot:heading>
 
-<form method="POST" action="/jobs/{{$job->id}}">
-    @csrf
-    @method('PATCH')
+    <div class="rounded-xl border border-slate-200 bg-white shadow-card p-6 sm:p-8 max-w-2xl">
+        <form method="POST" action="/jobs/{{ $job->id }}" class="space-y-8" id="edit-form">
+            @csrf
+            @method('PATCH')
 
-  <div class="space-y-12">
-    <div class="border-b border-gray-900/10 pb-12">
+            <div class="space-y-6">
+                <x-form-field>
+                    <x-form-label for="title">Job title</x-form-label>
+                    <div class="mt-2">
+                        <x-form-input name="title" id="title" :value="old('title', $job->title)" required />
+                        <x-form-error name="title" />
+                    </div>
+                </x-form-field>
 
-      <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-        <div class="sm:col-span-4">
-          <label for="title" class="block text-sm font-medium leading-6 text-gray-900">Title</label>
-          <div class="mt-2">
-            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-              <input type="text" name="title" id="title" class="block flex-1 border-0 bg-transparent py-1.5 px-3 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" value="{{$job->title}}" required>
+                <x-form-field>
+                    <x-form-label for="salary">Salary</x-form-label>
+                    <div class="mt-2">
+                        <x-form-input name="salary" id="salary" :value="old('salary', $job->salary)" required />
+                        <x-form-error name="salary" />
+                        <p class="mt-1.5 text-xs text-slate-500">€ is added automatically when displayed.</p>
+                    </div>
+                </x-form-field>
+
+                <x-form-field>
+                    <x-form-label for="employment_type">Employment type</x-form-label>
+                    <div class="mt-2">
+                        <select name="employment_type" id="employment_type" class="block w-full rounded-lg border border-slate-300 py-2.5 px-3.5 text-slate-900 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 focus:outline-none transition-colors sm:text-sm sm:leading-6">
+                            <option value="">— Select type —</option>
+                            <option value="Full-time" {{ old('employment_type', $job->employment_type) === 'Full-time' ? 'selected' : '' }}>Full-time</option>
+                            <option value="Part-time" {{ old('employment_type', $job->employment_type) === 'Part-time' ? 'selected' : '' }}>Part-time</option>
+                            <option value="Contract" {{ old('employment_type', $job->employment_type) === 'Contract' ? 'selected' : '' }}>Contract</option>
+                            <option value="Internship" {{ old('employment_type', $job->employment_type) === 'Internship' ? 'selected' : '' }}>Internship</option>
+                            <option value="Freelance" {{ old('employment_type', $job->employment_type) === 'Freelance' ? 'selected' : '' }}>Freelance</option>
+                        </select>
+                        <x-form-error name="employment_type" />
+                    </div>
+                </x-form-field>
+
+                <x-form-field>
+                    <x-form-label for="location">Location</x-form-label>
+                    <div class="mt-2">
+                        <x-form-input name="location" id="location" :value="old('location', $job->location)" placeholder="e.g. Paris, France or Remote" />
+                        <x-form-error name="location" />
+                    </div>
+                </x-form-field>
+
+                <x-form-field>
+                    <x-form-label for="description">Job description</x-form-label>
+                    <div class="mt-2">
+                        <x-form-textarea name="description" id="description" rows="6">{{ old('description', $job->description) }}</x-form-textarea>
+                        <x-form-error name="description" />
+                        <p class="mt-1.5 text-xs text-slate-500">Optional for existing listings. Minimum 20 characters if provided.</p>
+                    </div>
+                </x-form-field>
             </div>
 
-            @error('title')
-              <p class="text-xs text-red-500 font-semibold"> {{ $message }} </p>
-            @enderror
-          </div>
-        </div>
-
-        <div class="sm:col-span-4">
-          <label for="salary" class="block text-sm font-medium leading-6 text-gray-900">Salary</label>
-          <div class="mt-2">
-            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-              <input type="text" name="salary" id="salary" class="block flex-1 border-0 bg-transparent py-1.5 px-3 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" value="{{$job->salary}}" required>
+            <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-200">
+                <button type="submit" form="delete-form" class="text-sm font-semibold text-red-600 hover:text-red-700">
+                    Delete job
+                </button>
+                <div class="flex items-center gap-4">
+                    <a href="/jobs/{{ $job->id }}" class="text-sm font-semibold text-slate-600 hover:text-slate-900">Cancel</a>
+                    <x-form-button>Update job</x-form-button>
+                </div>
             </div>
-
-            @error('salary')
-              <p class="text-xs text-red-500 font-semibold"> {{ $message }} </p>
-            @enderror
-          </div>
-        </div>
-      </div>
+        </form>
     </div>
 
-  </div>
-
-  <div class="mt-6 flex items-center justify-between gap-x-6">
-    <div class="flex items-center">
-        <button form="delete-form" class="text-red-500 text-sm font-bold">Delete</button>
-    </div>
-
-    <div class="flex items-center gap-x-6">
-        <a href="/jobs/{{$job->id}}" class="text-sm font-semibold leading-6 text-gray-900">Cancel</button>
-        <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 ml-5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Update</button>
-    </div>
-
-  </div>
-</form>
-
-    <form method="post" action="/jobs/{{$job->id}}" id="delete-form" class="hidden">
+    <form method="post" action="/jobs/{{ $job->id }}" id="delete-form" class="hidden">
         @csrf
         @method('DELETE')
     </form>

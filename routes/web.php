@@ -3,6 +3,7 @@
 use App\Http\Controllers\FishController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterUserController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\SpotController;
@@ -22,7 +23,7 @@ Route::get('/jobs/{job}/edit', [JobController::class, 'edit'])->middleware(['aut
 Route::patch('/jobs/{job}', [JobController::class, 'update'])->middleware(['auth', 'can:edit,job']);
 Route::delete('/jobs/{job}', [JobController::class, 'destroy'])->middleware(['auth', 'can:edit,job']);
 
-
+Route::get('/profile', [ProfileController::class, 'show'])->middleware('auth');
 
 Route::controller(FishController::class)->group(function() {
     Route::get('/fish', 'index');
