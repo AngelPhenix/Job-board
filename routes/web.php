@@ -1,13 +1,11 @@
 <?php
 
-use App\Http\Controllers\FishController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterUserController;
 use App\Http\Controllers\SessionController;
-use App\Http\Controllers\SpotController;
-use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController ::class, 'index']);
 
@@ -24,19 +22,6 @@ Route::patch('/jobs/{job}', [JobController::class, 'update'])->middleware(['auth
 Route::delete('/jobs/{job}', [JobController::class, 'destroy'])->middleware(['auth', 'can:edit,job']);
 
 Route::get('/profile', [ProfileController::class, 'show'])->middleware('auth');
-
-Route::controller(FishController::class)->group(function() {
-    Route::get('/fish', 'index');
-    Route::get('/fish/create', 'create')->middleware(['auth', 'can:admin-only']);
-    Route::post('/fish', 'store');
-});
-
-Route::controller(SpotController::class)->group(function() {
-    Route::get('/spots', 'index');
-    Route::get('/spot/create', 'create')->middleware(['auth', 'can:admin-only']);
-    Route::get('/spot/{spot}', 'show');
-    Route::post('/spot', 'store')->middleware(['auth', 'can:admin-only']);
-});
 
 
 // Auth

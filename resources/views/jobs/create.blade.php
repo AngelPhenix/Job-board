@@ -1,7 +1,7 @@
 <x-layout>
     <x-slot:heading>Create a job</x-slot:heading>
 
-    <div class="rounded-xl border border-slate-200 bg-white shadow-card p-6 sm:p-8 max-w-2xl">
+    <div class="rounded-xl mx-auto mt-8 border border-slate-200 bg-white shadow-card p-6 sm:p-8 max-w-2xl">
         <p class="text-slate-600 mb-8">Add a new job listing. Give candidates enough context so they can see if it’s a fit.</p>
 
         <form method="POST" action="/jobs" class="space-y-8">

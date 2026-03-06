@@ -1,7 +1,7 @@
 <x-layout>
     <x-slot:heading>Create an account</x-slot:heading>
 
-    <div class="max-w-md rounded-xl border border-slate-200 bg-white shadow-card p-6 sm:p-8">
+    <div class="max-w-md mx-auto mt-8 rounded-xl border border-slate-200 bg-white shadow-card p-6 sm:p-8">
         <p class="text-slate-600 mb-6">Sign up to post jobs and manage your listings.</p>
 
         <form method="POST" action="/register" class="space-y-6">
@@ -36,7 +36,7 @@
             <x-form-field>
                 <x-form-label for="password">Password</x-form-label>
                 <div class="mt-2">
-                    <x-form-input name="password" id="password" type="password" placeholder="Min. 8 characters" required />
+                    <x-form-input name="password" id="password" type="password" placeholder="Min. 6 characters" required />
                     <x-form-error name="password" />
                 </div>
             </x-form-field>

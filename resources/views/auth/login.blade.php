@@ -1,7 +1,7 @@
 <x-layout>
     <x-slot:heading>Log in</x-slot:heading>
 
-    <div class="max-w-md rounded-xl border border-slate-200 bg-white shadow-card p-6 sm:p-8">
+    <div class="max-w-md mx-auto mt-8 rounded-xl border border-slate-200 bg-white shadow-card p-6 sm:p-8">
         <form method="POST" action="/login" class="space-y-6">
             @csrf
 

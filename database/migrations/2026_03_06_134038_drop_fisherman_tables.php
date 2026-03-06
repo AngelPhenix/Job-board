@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -11,12 +10,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('spots', function (Blueprint $table) {
-            $table->id();
-            $table->string('region');
-            $table->string('name');
-            $table->integer('level');
-        });
+        Schema::dropIfExists('fish_spot');
+        Schema::dropIfExists('fish_listings');
+        Schema::dropIfExists('spots');
     }
 
     /**
@@ -24,6 +20,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('spots');
+        // Intentionally left empty: this migration is for removing old tables.
     }
 };

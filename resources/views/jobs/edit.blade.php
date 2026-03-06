@@ -1,7 +1,7 @@
 <x-layout>
     <x-slot:heading>Edit job</x-slot:heading>
 
-    <div class="rounded-xl border border-slate-200 bg-white shadow-card p-6 sm:p-8 max-w-2xl">
+    <div class="rounded-xl mx-auto mt-8 border border-slate-200 bg-white shadow-card p-6 sm:p-8 max-w-3xl">
         <form method="POST" action="/jobs/{{ $job->id }}" class="space-y-8" id="edit-form">
             @csrf
             @method('PATCH')
