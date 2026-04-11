@@ -19,7 +19,6 @@
           <div class="hidden md:flex items-center gap-1">
             <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
             <x-nav-link href="/jobs" :active="request()->is('jobs')">Jobs</x-nav-link>
-            <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
           </div>
         </div>
         <div class="flex items-center gap-3">
@@ -79,7 +78,7 @@
 
   <footer class="bg-white border-t border-slate-200 mt-auto">
     <div class="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8 text-center text-sm text-slate-500">
-      <p>JobBoard — Find your next role. Built with Laravel.</p>
+      <p>JobBoard — Find your next role. Built with Laravel. —— JEREMYMATTAUSCH@2026</p>
     </div>
   </footer>
 </div>

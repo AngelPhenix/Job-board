@@ -9,9 +9,6 @@ use App\Http\Controllers\SessionController;
 
 Route::get('/', [HomeController ::class, 'index']);
 
-Route::view('/contact', 'contact');
-
-
 
 Route::get('/jobs', [JobController::class, 'index']);
 Route::get('/jobs/create', [JobController::class, 'create']);
